@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "allowJs": false,
+    "checkJs": false,
+    "module": "esnext",
+    "sourceMap": true,
+    "outDir": "dist",
+    "pretty": true,
+    "removeComments": false,
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
+    "downlevelIteration": true
+  },
+  "include": ["lib"],
+  "exclude": ["node_modules/*.ts", "dist"]
+}
