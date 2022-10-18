@@ -14,115 +14,34 @@
 extern crate serde_derive;
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Types {
-    #[serde(rename = "$schema")]
-    pub schema: String,
-
-    #[serde(rename = "definitions")]
-    pub definitions: Definitions,
+pub struct UserData {
+    #[serde(rename = "data")]
+    pub data: InnerData,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Definitions {
-    #[serde(rename = "InnerData")]
-    pub inner_data: Data,
-
-    #[serde(rename = "UserData")]
-    pub user_data: UserData,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Data {
-    #[serde(rename = "properties")]
-    pub properties: InnerDataProperties,
-
-    #[serde(rename = "type")]
-    pub data_type: String,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct InnerDataProperties {
+pub struct InnerData {
     #[serde(rename = "age")]
-    pub age: Age,
+    pub age: f64,
 
     #[serde(rename = "free")]
-    pub free: Age,
+    pub free: bool,
 
     #[serde(rename = "likes")]
-    pub likes: Likes,
+    pub likes: Vec<String>,
 
     #[serde(rename = "name")]
-    pub name: Age,
+    pub name: String,
 
     #[serde(rename = "skills")]
-    pub skills: Skills,
+    pub skills: Vec<Skill>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Age {
-    #[serde(rename = "type")]
-    pub age_type: Type,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Likes {
-    #[serde(rename = "items")]
-    pub items: Age,
-
-    #[serde(rename = "type")]
-    pub likes_type: String,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Skills {
-    #[serde(rename = "items")]
-    pub items: Items,
-
-    #[serde(rename = "type")]
-    pub skills_type: String,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Items {
-    #[serde(rename = "properties")]
-    pub properties: ItemsProperties,
-
-    #[serde(rename = "type")]
-    pub items_type: String,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct ItemsProperties {
+pub struct Skill {
     #[serde(rename = "detail")]
-    pub detail: Age,
+    pub detail: String,
 
     #[serde(rename = "name")]
-    pub name: Age,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct UserData {
-    #[serde(rename = "properties")]
-    pub properties: UserDataProperties,
-
-    #[serde(rename = "type")]
-    pub user_data_type: String,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct UserDataProperties {
-    #[serde(rename = "data")]
-    pub data: Data,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub enum Type {
-    #[serde(rename = "boolean")]
-    Boolean,
-
-    #[serde(rename = "number")]
-    Number,
-
-    #[serde(rename = "string")]
-    String,
+    pub name: String,
 }

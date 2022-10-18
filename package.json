@@ -4,16 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "json-schema": "typescript-json-schema --refs false --esModuleInterop -o types.json ./lib/index.ts '*'",
-    "quicktype": "quicktype --src types.json --src-lang json --lang rs --visibility public --derive-debug --out types.rs",
-    "convert": "npm run json-schema && npm run quicktype"
+    "convert": "quicktype --src ./lib/index.ts --visibility public --derive-debug --out types.rs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "quicktype": "^15.1.0",
-    "typescript": "^4.8.4",
-    "typescript-json-schema": "^0.54.0"
+    "typescript": "^4.8.4"
   }
 }
